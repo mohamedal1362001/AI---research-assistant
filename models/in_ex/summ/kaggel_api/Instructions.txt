@@ -1,0 +1,5 @@
+download the model with kaggel api  first  
+
+save it in dirctory copy path 
+
+go on ....! 

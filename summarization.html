@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="static/citation.css">
+  <link rel="stylesheet" type="text/css" href="static/styles.css">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width , initial-scale=1 , shrink-to-fit=no">
+  <title>PaperTown</title>
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
+    integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" ,
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" ,
+    integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" , crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+  <div class="nav">
+    <a class="logo" href="#">
+      <img class="image_logo" src="static/assets/icons/the_Papertown-removebg-preview.png">
+    </a>
+    <div class="navbar-toggler" type="button" id="bar">
+      <span class="toggler-icon"></span>
+      <span class="toggler-icon"></span>
+      <span class="toggler-icon"></span>
+    </div>
+    <div class="menu-bar" id="navbar">
+      <ul class="menu-items">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="#">About us</a></li>
+        {% if current_user.is_authenticated %}
+        <li class="dropdown">
+          <a href="#services">Service</a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ url_for('summarization_page') }}">Summarization</a></li>
+            <li><a href="{{ url_for('citation') }}">Citation</a></li>
+          </ul>
+        </li>
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        {% else %}
+        <li><a href="{{ url_for('login') }}">Sign in</a></li>
+        <li><a href="{{ url_for('register') }}">Sign up</a></li>
+        {% endif %}
+      </ul>
+    </div>
+    <div class="navbar-socail">
+      <span>FOLLOW US</span>
+      <ul>
+        <li><a href="#"><svg class="insta" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+              <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+              <style>
+                svg {
+                  fill: #6c6c6c
+                }
+              </style>
+              <path
+                d="M224,202.66A53.34,53.34,0,1,0,277.36,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.41-30.41c-21-8.29-71-6.43-94.3-6.43s-73.25-1.93-94.31,6.43a54,54,0,0,0-30.41,30.41c-8.28,21-6.43,71.05-6.43,94.33S91,329.26,99.32,350.33a54,54,0,0,0,30.41,30.41c21,8.29,71,6.43,94.31,6.43s73.24,1.93,94.3-6.43a54,54,0,0,0,30.41-30.41c8.35-21,6.43-71.05,6.43-94.33S357.1,182.74,348.75,161.67ZM224,338a82,82,0,1,1,82-82A81.9,81.9,0,0,1,224,338Zm85.38-148.3a19.14,19.14,0,1,1,19.13-19.14A19.1,19.1,0,0,1,309.42,189.74ZM400,32H48A48,48,0,0,0,0,80V432a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V80A48,48,0,0,0,400,32ZM382.88,322c-1.29,25.63-7.14,48.34-25.85,67s-41.4,24.63-67,25.85c-26.41,1.49-105.59,1.49-132,0-25.63-1.29-48.26-7.15-67-25.85s-24.63-41.42-25.85-67c-1.49-26.42-1.49-105.61,0-132,1.29-25.63,7.07-48.34,25.85-67s41.47-24.56,67-25.78c26.41-1.49,105.59-1.49,132,0,25.63,1.29,48.33,7.15,67,25.85s24.63,41.42,25.85,67.05C384.37,216.44,384.37,295.56,382.88,322Z" />
+            </svg>
+          </a>
+        </li>
+        <li><a href="#"><svg class="facebook" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+              <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+              <path
+                d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z" />
+            </svg>
+          </a>
+        </li>
+        <li><a href="#"><svg class="twitter" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+              <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+              <path
+                d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
+            </svg>
+          </a>
+        </li>
+        <li><a href="#"><svg class="linked-in" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+              <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+              <path
+                d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
+            </svg>
+          </a>
+        </li>
+
+
+
+      </ul>
+    </div>
+  </div>
+  <section class="section-services">
+    <div class="cont">
+      <div class="row justify-content-center text-center">
+        <div class="col-md-10 col-lg-8">
+          <div class="header-section">
+            <h2 class="title" style="margin-top:15vh">Summarizer</h2>
+            <h6>Upload one or more than one PDF and start saving time and summarize them all by one click</h6>
+          </div>
+        </div>
+      </div>
+      <div class="my-box">
+        <div class="col-md-6 col-lg-6 copy-area">
+          <div class="type">
+            <h5>scientific research</h3>
+          </div>
+          <form method="POST" action="{{ url_for('summary') }}" enctype="multipart/form-data">
+            <div class="con-text">
+              <textarea class="ta-block" name="summaryErea"></textarea>
+              <select name="summaryStyleSelect" class="form-select" id="summaryStyleSelect">
+                <option selected disabled>Summarization Style:</option>
+                <option value="1">Medical Paper</option>
+                <option value="2">General Paper</option>
+              </select>
+            </div>
+            <button type="submit">Summarize</button>
+          </form>
+          <div class="upload-genrate">
+            <form method="POST" action="{{ url_for('uploadsumary') }}" enctype="multipart/form-data">
+              <input type="file" name="file" multiple>
+              <button type="submit">Upload</button>
+            </form>
+          </div>
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          <ul class="flash-messages">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+          {% endwith %}
+        </div>
+        <div class="col-md-6 col-lg-6 output">
+          
+          <div class="con-text">
+              <textarea class="ta-block" id="CopySummary" readonly>{{final_summary}}</textarea>
+          </div>
+          <div class="contaner">
+            <div class="form-floating">
+              <div class="block-citation-text">
+                <div class="format-citation">
+                  <ul class="header-btn">
+                    <li><a class="main-btn btn-one" onclick="triggerExample1()"><svg xmlns="http://www.w3.org/2000/svg"
+                          height="1em" viewBox="0 0 512 512">
+                          <style>
+                            svg {
+                              fill: #a7aaaf
+                            }
+                          </style>
+                          <path
+                            d="M272 0H396.1c12.7 0 24.9 5.1 33.9 14.1l67.9 67.9c9 9 14.1 21.2 14.1 33.9V336c0 26.5-21.5 48-48 48H272c-26.5 0-48-21.5-48-48V48c0-26.5 21.5-48 48-48zM48 128H192v64H64V448H256V416h64v48c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V176c0-26.5 21.5-48 48-48z" />
+                        </svg></a></li>
+                    <li><a class="main-btn btn-two" href="#"><svg xmlns="http://www.w3.org/2000/svg" height="1.25em"
+                          viewBox="0 0 512 512">
+                          <style>
+                            svg {
+                              fill: #b4b8c0
+                            }
+                          </style>
+                          <path
+                            d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM376.9 294.6L269.8 394.5c-3.8 3.5-8.7 5.5-13.8 5.5s-10.1-2-13.8-5.5L135.1 294.6c-4.5-4.2-7.1-10.1-7.1-16.3c0-12.3 10-22.3 22.3-22.3l57.7 0 0-96c0-17.7 14.3-32 32-32l32 0c17.7 0 32 14.3 32 32l0 96 57.7 0c12.3 0 22.3 10 22.3 22.3c0 6.2-2.6 12.1-7.1 16.3z" />
+                        </svg></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+      <footer>
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col">
+            <h4>company</h4>
+            <ul>
+              <li><a href="#">about us</a></li>
+              <li><a href="#">our services</a></li>
+              <li><a href="#">privacy policy</a></li>
+              <li><a href="#">affiliate program</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>follow us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </footer>
+  </section>
+
+
+
+    <!-- <script>
+      function triggerExample1() {
+        // get the container
+        const element = document.querySelector('#stopcondition');
+        // Create a fake `textarea` and set the contents to the text
+        // you want to copy
+        const storage = document.createElement('textarea');
+        storage.value = element.innerHTML;
+        element.appendChild(storage);
+
+        // Copy the text in the fake `textarea` and remove the `textarea`
+        storage.select();
+        storage.setSelectionRange(0, 99999);
+        document.execCommand('copy');
+        element.removeChild(storage);
+        alert("Text Copied Successfully");
+    }
+    </script> -->
+    <script>
+      function triggerExample1() {
+        // get the container
+         var textarea = document.getElementById("CopySummary");
+      textarea.select();
+      navigator.clipboard.writeText(textarea.value)
+        .then(function() {
+          alert("Text copied to clipboard!");
+        })
+        .catch(function(error) {
+          alert("Error copying text: " + error);
+        });
+    }
+    </script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
